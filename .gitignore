@@ -1,4 +1,12 @@
+*.py[co]
+*.mo
 *.log
-*.pot
-*.pyc
-local_settings.py
+*.sublime-workspace
+*.sublime-project
+*.viminfo
+*.ipython
+*.sqlite
+/.codeintel
+/media/static
+/media/upload
+

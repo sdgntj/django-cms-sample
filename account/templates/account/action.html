@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n cms_extra %}
+{% block content %}
+<div class="container">
+  {% if action == 'error' %}
+    <h3>{% trans 'Social login failed!' %}</h3>
+    <h4>{% trans 'Your try to login with your social network account failed. The reason might be one of the following items:' %}</h4>
+    <ul>
+      <li>{% trans 'The social network site is expriencing some internal problem now. So please go to that site and try to login or try login with us later.' %}</li>
+      <li>{% trans 'Your account might be suspended.' %}</li>
+      <li>{% trans 'You are using some tunneling software which is failed to work or is blocked by your ISP or your social network service provider' %}</li>
+      <li>{% trans 'We might be facing with some internal issues.' %}</li>
+    </ul>
+    {% page_attribute_x 'absolute_url' 'support' as SUPPORT %}
+    <h4>{% blocktrans %}Please feel free to contact with <a href="{{ SUPPORT }}">support</a> and ask them to help you.{% endblocktrans %}</h4>
+  {% endif %}
+  {% if action == 'new' %}
+    <h3>Welcome to {{ SITE_NAME }}!</h3>
+    <p class="lead">{% trans 'You are logged in for the first time with your social account' %}</p>
+  {% endif %}
+</div>
+{% endblock %}
